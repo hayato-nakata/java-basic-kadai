@@ -8,8 +8,8 @@ public class Jyanken_Chapter26 {
 	
 	
 	public String getMyChoice() {
-		Scanner scanner = new Scanner(System.in);
-		try {
+		try (Scanner scanner = new Scanner(System.in)){
+			
 			String input= scanner.next();
 	      
 			if (input.equals("r") || input.equals("p") || input.equals("s")  ) {
@@ -20,9 +20,7 @@ public class Jyanken_Chapter26 {
 				System.out.println("rまたはpまたはsを入力してください。");
 				return getMyChoice();
 			}
-		} finally {
-			scanner.close();
-		}
+		} 
 	}
 	
 	
@@ -30,7 +28,7 @@ public class Jyanken_Chapter26 {
 		
 		String[] hands = { "r", "p", "s" };
 		
-        // Randomクラスのインスタンスを生成
+        
         Random random = new Random();
         
         double randomDouble  = random.nextDouble() * 3; 
@@ -42,6 +40,7 @@ public class Jyanken_Chapter26 {
 	
 	
 	public void playGame(String my , String your) {
+		
 		HashMap<String,String> role = new HashMap<String,String>();
 
 		role.put("r","グー");
